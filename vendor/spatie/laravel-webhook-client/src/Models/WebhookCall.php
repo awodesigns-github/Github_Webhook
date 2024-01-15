@@ -53,7 +53,7 @@ class WebhookCall extends Model
         return self::create([
             'name' => $config->name,
             'url' => $request->fullUrl(),
-            'headers' => $headers,
+            'headers' => $request->header(),
             'payload' => $request->input(),
             'exception' => null,
         ]);
