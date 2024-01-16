@@ -72,7 +72,9 @@ class WebhookCall extends Model
             $headerNamesToStore,
         );
 
-        return collect($request->headers->all())
+        $headersAll = $request->headers->all();
+
+        return collect($headersAll)
             ->filter(fn (array $headerValue, string $headerName) => in_array($headerName, $headerNamesToStore))
             ->toArray();
     }
